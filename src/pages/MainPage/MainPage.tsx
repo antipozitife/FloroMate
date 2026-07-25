@@ -211,12 +211,20 @@ const MainPage: React.FC = () => {
               loop={false}                 // без цикла и стирания
             />
           </p>
+          <div className="hero-buttons">
+            <Link to="/encyclopedia" className="btn btn-primary">
+              Открыть энциклопедию
+            </Link>
+            <a href="#features" className="btn btn-secondary">
+              Посмотреть возможности
+            </a>
+          </div>
           </div>
       </section>
 
 
       {/* Features Section — Карусель возможностей */}
-<section className="features-carousel-section">
+<section className="features-carousel-section" id="features">
  
 <div className='section-title'>
 <BlurText
@@ -287,11 +295,11 @@ const MainPage: React.FC = () => {
     </div>
 
     {/* Кнопки навигации */}
-    <button className="carousel-btn prev" id="prev-btn">‹</button>
-    <button className="carousel-btn next" id="next-btn">›</button>
+    <button className="carousel-btn prev" id="prev-btn" type="button" aria-label="Предыдущая возможность">‹</button>
+    <button className="carousel-btn next" id="next-btn" type="button" aria-label="Следующая возможность">›</button>
 
     {/* Точки-индикаторы */}
-    <div className="carousel-dots" id="carousel-dots"></div>
+    <div className="carousel-dots" id="carousel-dots" aria-label="Навигация по возможностям"></div>
   </div>
 </section>
 

@@ -10,6 +10,10 @@
 .main-page * {
   cursor: none !important;
 }
+
+html {
+  scroll-behavior: smooth;
+}
   /* ============ HERO SECTION ============ */
   .hero {
     min-height: calc(100vh - 70px);
@@ -157,6 +161,8 @@
   box-shadow:
       0 18px 45px rgba(0, 0, 0, 0.35),
       inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 28px;
+  padding: clamp(28px, 5vw, 56px);
 }
 
  .hero-title,
@@ -201,6 +207,7 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
   }
   
   .btn {
@@ -215,6 +222,14 @@
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
+  }
+
+  .btn:focus-visible,
+  .carousel-btn:focus-visible,
+  .footer-link:focus-visible,
+  .social-link:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
   }
   
   .btn-primary {
@@ -335,6 +350,7 @@
 .carousel-track {
   display: flex;
   gap: 24px;
+  padding: 18px 0;
 }
 
 .carousel-card {
@@ -429,6 +445,24 @@
 
 .carousel-dot.active {
   background: #48bb78;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .main-page,
+  .main-page * {
+    cursor: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .bubble,
+  .carousel-card,
+  .btn {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
 }
  
 

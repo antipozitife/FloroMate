@@ -1,17 +1,26 @@
 {
     "name": "floromate",
     "version": "2.0.2",
-    "description": "",
+    "description": "Интерактивная React-платформа для ухода за растениями и проектирования сада",
     "main": "./src/index.tsx",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "brojs server --port=8099",
         "start": "brojs server --port=8099 --with-open-browser",
         "build": "npm run clean && brojs build --dev",
         "build:prod": "npm run clean && brojs build",
-        "clean": "rimraf dist"
+        "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+        "typecheck": "tsc --noEmit",
+        "test": "npm run typecheck",
+        "check": "npm run typecheck && npm run build:prod"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "react",
+        "typescript",
+        "redux-toolkit",
+        "threejs",
+        "frontend",
+        "portfolio"
+    ],
     "license": "ISC",
     "type": "commonjs",
     "dependencies": {

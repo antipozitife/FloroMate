@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useRef, useState, ChangeEvent, FormEvent } from 'react';
 import './DiseaseDetection.css';
 
 interface DiseaseResult {
@@ -28,17 +28,18 @@ interface ApiResponse {
 }
 
 const DiseaseDetection: React.FC = () => {
-  const [imageFile, setImageFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
-  const [bestMatch, setBestMatch] = useState(null);
-  const [allResults, setAllResults] = useState([]);
-  const [isHealthy, setIsHealthy] = useState(null);
+  const [bestMatch, setBestMatch] = useState<BestMatch | null>(null);
+  const [allResults, setAllResults] = useState<DiseaseResult[]>([]);
+  const [isHealthy, setIsHealthy] = useState<boolean | null>(null);
 
-  const handleFileChange = (e: ChangeEvent) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.currentTarget.files?.[0]) {
+      const file = e.currentTarget.files[0];
       setImageFile(file);
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -155,6 +156,7 @@ const DiseaseDetection: React.FC = () => {
 
               <div className="file-input-wrapper">
                 <input
+                  ref={fileInputRef}
                   type="file"
                   className="file-input"
                   onChange={handleFileChange}
@@ -163,7 +165,18 @@ const DiseaseDetection: React.FC = () => {
                 />
 
                 {!previewUrl ? (
-                  <div className="file-input-placeholder" onClick={() => document.querySelector('.file-input')?.click()}>
+                  <div
+                    className="file-input-placeholder"
+                    onClick={() => fileInputRef.current?.click()}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        fileInputRef.current?.click();
+                      }
+                    }}
+                  >
                     <span className="placeholder-icon">📁</span>
                     <span className="placeholder-text">Выбрать фото</span>
                   </div>

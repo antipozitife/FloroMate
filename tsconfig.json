@@ -9,7 +9,7 @@
         "esModuleInterop": true,
         "noImplicitAny": false,
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "target": "es6",
         "jsx": "react",
         "typeRoots": ["node_modules/@types", "src/typings"],

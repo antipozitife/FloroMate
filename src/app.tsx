@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import type { RootState } from './store/store';
 import Header from './components/Header/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainPage from './pages/MainPage/MainPage';
-import LandscapeDesign from './pages/LandscapeDesign';
-import LandscapeConstructor from './pages/LandscapeConstructor';
-import Encyclopedia from './pages/Encyclopedia/Encyclopedia';
-import PlantRecognition from './pages/PlantRecognition/PlantRecognition';
-import DiseaseDetection from './pages/DiseaseDetection/DiseaseDetection';
-import OurTeam from './pages/OurTeam';
-import PrivateGarden from './pages/PrivateGarden';
-import Subscription from './pages/Subscription';
-import Auth from './pages/Auth';
 import './App.css';
+
+const LandscapeDesign = lazy(() => import('./pages/LandscapeDesign'));
+const LandscapeConstructor = lazy(() => import('./pages/LandscapeConstructor'));
+const Encyclopedia = lazy(() => import('./pages/Encyclopedia/Encyclopedia'));
+const PlantRecognition = lazy(() => import('./pages/PlantRecognition/PlantRecognition'));
+const DiseaseDetection = lazy(() => import('./pages/DiseaseDetection/DiseaseDetection'));
+const OurTeam = lazy(() => import('./pages/OurTeam'));
+const PrivateGarden = lazy(() => import('./pages/PrivateGarden'));
+const Subscription = lazy(() => import('./pages/Subscription'));
+const Auth = lazy(() => import('./pages/Auth'));
 
 const App: React.FC = () => {
   // ✅ Используйте publicPath из конфига
   // Должно совпадать с publicPath в brojs.config
   const basePath = '/floromate';
-  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
-
   return (
     <Router basename={basePath}>
       <Header />
-      <Routes>
+      <Suspense fallback={<div className="page-loader" role="status">Загружаем страницу…</div>}>
+        <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/encyclopedia" element={<Encyclopedia />} />
         <Route path="/auth" element={<Auth />} />
@@ -82,7 +80,8 @@ const App: React.FC = () => {
 
         {/* Fallback маршрут */}
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        </Routes>
+      </Suspense>
     </Router>
   );
 };

@@ -25,8 +25,8 @@ export interface Plant {
   categoryName: string;
   description: string;
   care: CareInfo;  // ← Используем care
-  features: string;
-  dangers: string;
+  features: string[];
+  dangers: string[];
   maintenance: string;
   isRecognized?: boolean;
   genus?: string;

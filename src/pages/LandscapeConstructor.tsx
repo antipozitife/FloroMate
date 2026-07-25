@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../types/App1.css';
-import { Viewport3D } from './Viewport3D.tsx';
+import { Viewport3D } from './Viewport3D';
 
-import { clearModelCache } from './Viewport3D.tsx';
+import { clearModelCache } from './Viewport3D';
 
 
 interface SceneObject {
