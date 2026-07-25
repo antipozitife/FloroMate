@@ -25,7 +25,7 @@
 - Redux Toolkit;
 - Three.js;
 - CSS, GSAP и Motion;
-- Bro.js/Webpack;
+- Webpack 5;
 - Express для локального mock API.
 
 ## Быстрый старт
@@ -38,7 +38,7 @@ npm run dev
 ```
 
 Приложение будет доступно по адресу
-`http://localhost:8099/floromate`.
+`http://localhost:8099`.
 
 Команда `npm start` запускает тот же сервер и автоматически открывает браузер.
 
@@ -56,6 +56,22 @@ npm run check
 ```
 
 Результат сборки создаётся в каталоге `dist`.
+
+## Деплой на Vercel
+
+В репозитории есть готовая конфигурация `vercel.json`. Vercel запускает
+`npm run build:prod`, публикует каталог `dist` и перенаправляет SPA-маршруты
+на `index.html`.
+
+В настройках Vercel добавьте build-time переменную:
+
+```text
+API_BASE_URL=https://your-api.example.com
+```
+
+Укажите публичный адрес отдельно размещённого backend без завершающего `/`.
+Локально переменную можно не задавать: Webpack Dev Server проксирует `/api`
+на `http://localhost:3001`.
 
 ## Переменные окружения
 
@@ -83,6 +99,8 @@ public/
 ├── treeModels/        # GLB-модели для 3D-конструктора
 └── images3D/          # превью объектов
 stubs/api/             # локальный mock API
+webpack.config.js      # standalone Webpack-сборка
+vercel.json            # настройки деплоя и SPA routing
 ```
 
 ## Архитектурные решения

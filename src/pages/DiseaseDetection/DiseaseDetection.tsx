@@ -1,5 +1,6 @@
 import React, { useRef, useState, ChangeEvent, FormEvent } from 'react';
 import './DiseaseDetection.css';
+import { apiUrl } from '../../config/api';
 
 interface DiseaseResult {
   name: string;
@@ -67,7 +68,7 @@ const DiseaseDetection: React.FC = () => {
       const formData = new FormData();
       formData.append('image', imageFile);
 
-      const response = await fetch('http://localhost:3001/api/disease-detect', {
+      const response = await fetch(apiUrl('/api/disease-detect'), {
         method: 'POST',
         body: formData,
       });

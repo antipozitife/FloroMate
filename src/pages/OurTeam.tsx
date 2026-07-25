@@ -4,6 +4,7 @@ import alinaPhoto from '../assets/team/alina.jpg';
 import dilyaraPhoto from '../assets/team/dilyara.jpg';
 import artemPhoto from '../assets/team/artem.jpg';
 import './OurTeam.css';
+import { apiUrl } from '../config/api';
 
 const OurTeam: React.FC = () => {
   // Скроллим вверх при загрузке страницы
@@ -64,7 +65,7 @@ const OurTeam: React.FC = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost:3001/api/feedback', {
+      const response = await fetch(apiUrl('/api/feedback'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

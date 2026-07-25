@@ -16,11 +16,8 @@ const Subscription = lazy(() => import('./pages/Subscription'));
 const Auth = lazy(() => import('./pages/Auth'));
 
 const App: React.FC = () => {
-  // ✅ Используйте publicPath из конфига
-  // Должно совпадать с publicPath в brojs.config
-  const basePath = '/floromate';
   return (
-    <Router basename={basePath}>
+    <Router>
       <Header />
       <Suspense fallback={<div className="page-loader" role="status">Загружаем страницу…</div>}>
         <Routes>

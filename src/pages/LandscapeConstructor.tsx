@@ -57,22 +57,22 @@ const getImage = (src: string): HTMLImageElement | null => {
 };
 
 const LIBRARY: LibraryItem[] = [
-  { id: 'p5', name: 'деревья', type: 'plant', icon: 'http://localhost:3001/images3D/home3.png', width: 80, height: 80 },
+  { id: 'p5', name: 'деревья', type: 'plant', icon: '/images3D/home3.png', width: 80, height: 80 },
 
-  { id: 'f_home', name: 'коттедж', type: 'furniture', icon: 'http://localhost:3001/images3D/home.png', width: 150, height: 150 },
-  { id: 'f_home2', name: 'дом', type: 'furniture', icon: 'http://localhost:3001/images3D/home2.png', width: 200, height: 200 },
-  { id: 'f_home3', name: 'дом', type: 'furniture', icon: 'http://localhost:3001/images3D/tree.png', width: 250, height: 250 },
+  { id: 'f_home', name: 'коттедж', type: 'furniture', icon: '/images3D/home.png', width: 150, height: 150 },
+  { id: 'f_home2', name: 'дом', type: 'furniture', icon: '/images3D/home2.png', width: 200, height: 200 },
+  { id: 'f_home3', name: 'дом', type: 'furniture', icon: '/images3D/tree.png', width: 250, height: 250 },
 
-  { id: 'amh', name: 'дом', type: 'furniture', icon: 'http://localhost:3001/images3D/amho.png', width: 80, height: 80 },
-  { id: 'asd', name: 'ферма', type: 'furniture', icon: 'http://localhost:3001/images3D/asd.png', width: 70, height: 70 },
-  { id: 'barn', name: 'ферма', type: 'furniture', icon: 'http://localhost:3001/images3D/barn.png', width: 120, height: 100 },
-  { id: 'fenc1', name: 'ворота', type: 'doors', icon: 'http://localhost:3001/images3D/fenc.png', width: 150, height: 30 },
-  { id: 'fence1', name: 'ворота', type: 'doors', icon: 'http://localhost:3001/images3D/fence.png', width: 150, height: 30 },
-  { id: 'fence2', name: 'ворота', type: 'doors', icon: 'http://localhost:3001/images3D/fences.png', width: 200, height: 30 },
-  { id: 'fence3', name: 'ворота', type: 'doors', icon: 'http://localhost:3001/images3D/fencess.png', width: 200, height: 30 },
-  { id: 'flow', name: 'клумба', type: 'plant', icon: 'http://localhost:3001/images3D/flow.png', width: 50, height: 50 },
-  { id: 'poly', name: 'клумба', type: 'plant', icon: 'http://localhost:3001/images3D/poly.png', width: 90, height: 90 },
-  { id: 'qwe', name: 'дом', type: 'furniture', icon: 'http://localhost:3001/images3D/qwe.png', width: 100, height: 100 },
+  { id: 'amh', name: 'дом', type: 'furniture', icon: '/images3D/amho.png', width: 80, height: 80 },
+  { id: 'asd', name: 'ферма', type: 'furniture', icon: '/images3D/asd.png', width: 70, height: 70 },
+  { id: 'barn', name: 'ферма', type: 'furniture', icon: '/images3D/barn.png', width: 120, height: 100 },
+  { id: 'fenc1', name: 'ворота', type: 'doors', icon: '/images3D/fenc.png', width: 150, height: 30 },
+  { id: 'fence1', name: 'ворота', type: 'doors', icon: '/images3D/fence.png', width: 150, height: 30 },
+  { id: 'fence2', name: 'ворота', type: 'doors', icon: '/images3D/fences.png', width: 200, height: 30 },
+  { id: 'fence3', name: 'ворота', type: 'doors', icon: '/images3D/fencess.png', width: 200, height: 30 },
+  { id: 'flow', name: 'клумба', type: 'plant', icon: '/images3D/flow.png', width: 50, height: 50 },
+  { id: 'poly', name: 'клумба', type: 'plant', icon: '/images3D/poly.png', width: 90, height: 90 },
+  { id: 'qwe', name: 'дом', type: 'furniture', icon: '/images3D/qwe.png', width: 100, height: 100 },
 ];
 
 const AI_STYLES = [

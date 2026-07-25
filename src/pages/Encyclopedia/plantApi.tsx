@@ -1,7 +1,8 @@
 // src/pages/Encyclopedia/plantApi.tsx
 import { Plant, Filters } from '../../types/plant';
+import { apiUrl } from '../../config/api';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = apiUrl('/api');
 
 interface FetchPlantsResult {
   plants: Plant[];

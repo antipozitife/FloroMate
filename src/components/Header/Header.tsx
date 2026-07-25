@@ -125,11 +125,11 @@ const Header: React.FC = () => {
   };
 
 
-  const isRecognitionActive = location.pathname === '/floromate/recognition1' ||
-  location.pathname === '/floromate/recognition2';
+  const isRecognitionActive = location.pathname === '/recognition1' ||
+  location.pathname === '/recognition2';
 
-const isLandscapeActive = location.pathname === '/floromate/landscapedesign' ||
-  location.pathname === '/floromate/konstructor';
+const isLandscapeActive = location.pathname === '/landscapedesign' ||
+  location.pathname === '/konstructor';
 
   const handleMenuEnter = (menu: string) => {
     setOpenMenu(menu);

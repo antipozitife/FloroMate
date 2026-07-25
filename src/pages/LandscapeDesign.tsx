@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './LandscapeDesign.css';
+import { apiUrl } from '../config/api';
 
 const LandscapeDesign: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -142,7 +143,7 @@ const LandscapeDesign: React.FC = () => {
         formData.append('prompt', customPrompt.trim());
       }
 
-      const response = await fetch('http://localhost:3001/api/landscape/generate', {
+      const response = await fetch(apiUrl('/api/landscape/generate'), {
         method: 'POST',
         body: formData,
       });

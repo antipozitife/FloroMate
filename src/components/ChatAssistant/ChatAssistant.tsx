@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import './ChatAssistant.css';
+import { apiUrl } from '../../config/api';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -58,7 +59,7 @@ const ChatAssistant: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/chat', {
+      const response = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

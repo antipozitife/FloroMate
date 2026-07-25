@@ -4,10 +4,10 @@
     "description": "Интерактивная React-платформа для ухода за растениями и проектирования сада",
     "main": "./src/index.tsx",
     "scripts": {
-        "dev": "brojs server --port=8099",
-        "start": "brojs server --port=8099 --with-open-browser",
-        "build": "npm run clean && brojs build --dev",
-        "build:prod": "npm run clean && brojs build",
+        "dev": "webpack serve --mode development",
+        "start": "webpack serve --mode development --open",
+        "build": "npm run clean && webpack --mode development",
+        "build:prod": "npm run clean && webpack --mode production",
         "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
         "typecheck": "tsc --noEmit",
         "test": "npm run typecheck",
@@ -24,7 +24,6 @@
     "license": "ISC",
     "type": "commonjs",
     "dependencies": {
-        "@brojs/cli": "^1.10.0",
         "@gsap/react": "^2.1.2",
         "@reduxjs/toolkit": "^2.11.0",
         "@types/react": "^18.3.12",
@@ -58,8 +57,16 @@
         "@types/node": "^25.0.1",
         "@types/three": "^0.182.0",
         "babel-loader": "^10.0.0",
+        "copy-webpack-plugin": "^13.0.1",
         "crypto-browserify": "^3.12.1",
+        "css-loader": "^7.1.4",
+        "html-webpack-plugin": "^5.6.8",
         "os-browserify": "^0.3.0",
-        "path-browserify": "^1.0.1"
+        "path-browserify": "^1.0.1",
+        "style-loader": "^4.0.0",
+        "ts-loader": "^9.6.2",
+        "webpack": "^5.109.0",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.6"
     }
 }

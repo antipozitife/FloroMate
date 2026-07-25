@@ -4,6 +4,7 @@ import { updateSubscription } from '../store/authSlice';
 import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
 import AuthModal from '../components/AuthModal/AuthModal';
 import './Subscription.css';
+import { apiUrl } from '../config/api';
 
 type SubscriptionType = 'free' | 'pro' | 'pro_ultra';
 
@@ -123,7 +124,7 @@ const Subscription: React.FC = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3001/api/subscription/upgrade', {
+      const response = await fetch(apiUrl('/api/subscription/upgrade'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

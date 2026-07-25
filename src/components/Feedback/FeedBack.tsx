@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './FeedBack.css';
+import { apiUrl } from '../../config/api';
 
 interface FeedbackItem {
   id: number;
@@ -26,7 +27,7 @@ const Feedback: React.FC = () => {
   const fetchFeedbacks = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:3001/api/feedback');
+      const response = await fetch(apiUrl('/api/feedback'));
       if (!response.ok) {
         throw new Error('Failed to fetch feedbacks');
       }

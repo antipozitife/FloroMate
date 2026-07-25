@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { setUser } from '../../store/authSlice';
+import { apiUrl } from '../../config/api';
 import './AuthModal.css';
 
 interface AuthModalProps {
@@ -11,7 +12,6 @@ interface AuthModalProps {
 
 const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'login' }) => {
   const dispatch = useAppDispatch();
-  const API_BASE = 'http://localhost:3001';
 
   const [formType, setFormType] = useState<'login' | 'register' | 'verify' | 'resetPassword' | 'resetVerify' | 'newPassword'>(initialType);
   const [formData, setFormData] = useState({
@@ -92,7 +92,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'l
           return;
         }
 
-        const response = await fetch(API_BASE + '/api/auth/login', {
+        const response = await fetch(apiUrl('/api/auth/login'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: formData.username, password: formData.password }),
@@ -138,7 +138,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'l
         }
 
         // Отправляем код верификации
-        const response = await fetch(API_BASE + '/api/auth/send-verification', {
+        const response = await fetch(apiUrl('/api/auth/send-verification'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
@@ -167,7 +167,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'l
           return;
         }
 
-        const response = await fetch(API_BASE + '/api/auth/send-verification', {
+        const response = await fetch(apiUrl('/api/auth/send-verification'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ phone: formData.phone, isPasswordReset: true }),
@@ -205,7 +205,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'l
       }
 
       if (formType === 'verify') {
-        const response = await fetch(API_BASE + '/api/auth/verify-code', {
+        const response = await fetch(apiUrl('/api/auth/verify-code'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -270,7 +270,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'l
         return;
       }
 
-      const response = await fetch(API_BASE + '/api/auth/reset-password', {
+      const response = await fetch(apiUrl('/api/auth/reset-password'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -304,7 +304,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialType = 'l
     if (isResendDisabled) return;
     
     try {
-      const response = await fetch(API_BASE + '/api/auth/send-verification', {
+      const response = await fetch(apiUrl('/api/auth/send-verification'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

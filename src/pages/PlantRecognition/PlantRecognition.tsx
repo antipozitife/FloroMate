@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent, useRef } from 'react';
 import './PlantRecognition.css';
 import { addRecognizedPlant } from '../Encyclopedia/plantApi';
+import { apiUrl } from '../../config/api';
 
 interface PlantResult {
   species?: {
@@ -87,7 +88,7 @@ const PlantRecognition: React.FC = () => {
       if (leafImage) formData.append('leaf', leafImage);
   
       // Шаг 1: Распознавание через PlantNet
-      const response = await fetch('http://localhost:3001/api/identify', {
+      const response = await fetch(apiUrl('/api/identify'), {
         method: 'POST',
         body: formData,
       });
@@ -114,7 +115,7 @@ const PlantRecognition: React.FC = () => {
                                 'Unknown';
           
           try {
-            const enrichResponse = await fetch('http://localhost:3001/api/plants/enrich', {
+            const enrichResponse = await fetch(apiUrl('/api/plants/enrich'), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ scientificName })

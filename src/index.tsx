@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 import App from './app'
-import './App.css'
+import './index.css'
 
 export default () => <App />
 
@@ -49,17 +49,7 @@ export const unmount = () => {
   }
 }
 
-// ✅ Экспортируем на window для доступа из броJS
-// @ts-ignore
-window.mount = mount;
-// @ts-ignore
-window.unmount = unmount;
-// @ts-ignore
-window.App = App;
-
-console.log('✅ FloroMate модуль загружен. window.mount и window.App доступны.');
-
-// ✅ Сразу монтируем при загрузке скрипта (для standalone режима)
+// Сразу монтируем standalone-приложение после загрузки HTML-шаблона.
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('app');
   if (container) {
