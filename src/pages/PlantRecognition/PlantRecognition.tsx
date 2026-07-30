@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent, FormEvent, useRef } from 'react';
 import './PlantRecognition.css';
 import { addRecognizedPlant } from '../Encyclopedia/plantApi';
 import { apiUrl } from '../../config/api';
+import { notifyDemoAction } from '../../demo/demoNotice';
 
 interface PlantResult {
   species?: {
@@ -42,6 +43,7 @@ const PlantRecognition: React.FC = () => {
     type: 'flower' | 'leaf'
   ) => {
     if (e.target.files && e.target.files[0]) {
+      notifyDemoAction('photo');
       const file = e.target.files[0];
       const reader = new FileReader();
 

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './LandscapeDesign.css';
 import { apiUrl } from '../config/api';
+import { notifyDemoAction } from '../demo/demoNotice';
 
 const LandscapeDesign: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -58,6 +59,7 @@ const LandscapeDesign: React.FC = () => {
     handleInputChange();
     const file = e.target.files?.[0];
     if (file) {
+      notifyDemoAction('photo');
       if (!file.type.startsWith('image/')) {
         setStatus({ type: 'error', message: '❌ Пожалуйста, загрузите изображение (JPG, PNG)' });
         return;
@@ -91,6 +93,7 @@ const LandscapeDesign: React.FC = () => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
     if (file) {
+      notifyDemoAction('photo');
       if (!file.type.startsWith('image/')) {
         setStatus({ type: 'error', message: '❌ Пожалуйста, загрузите изображение (JPG, PNG)' });
         return;
@@ -128,6 +131,9 @@ const LandscapeDesign: React.FC = () => {
     if (!selectedImage && !customPrompt.trim()) {
       setStatus({ type: 'error', message: '❌ Пожалуйста, загрузите фото или введите описание ландшафта' });
       return;
+    }
+    if (customPrompt.trim() && !selectedImage) {
+      notifyDemoAction('message');
     }
 
     setLoading(true);

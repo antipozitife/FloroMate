@@ -1,6 +1,7 @@
 import React, { useRef, useState, ChangeEvent, FormEvent } from 'react';
 import './DiseaseDetection.css';
 import { apiUrl } from '../../config/api';
+import { notifyDemoAction } from '../../demo/demoNotice';
 
 interface DiseaseResult {
   name: string;
@@ -40,6 +41,7 @@ const DiseaseDetection: React.FC = () => {
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.files?.[0]) {
+      notifyDemoAction('photo');
       const file = e.currentTarget.files[0];
       setImageFile(file);
       const reader = new FileReader();

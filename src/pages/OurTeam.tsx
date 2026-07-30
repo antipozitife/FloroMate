@@ -5,6 +5,7 @@ import dilyaraPhoto from '../assets/team/dilyara.jpg';
 import artemPhoto from '../assets/team/artem.jpg';
 import './OurTeam.css';
 import { apiUrl } from '../config/api';
+import { notifyDemoAction } from '../demo/demoNotice';
 
 const OurTeam: React.FC = () => {
   // Скроллим вверх при загрузке страницы
@@ -60,6 +61,7 @@ const OurTeam: React.FC = () => {
       setSubmitStatus({ type: 'error', message: 'Пожалуйста, напишите сообщение (минимум 10 символов)' });
       return;
     }
+    notifyDemoAction('message');
 
     setIsSubmitting(true);
     setSubmitStatus(null);

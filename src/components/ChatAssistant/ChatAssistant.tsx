@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import './ChatAssistant.css';
 import { apiUrl } from '../../config/api';
+import { notifyDemoAction } from '../../demo/demoNotice';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -34,6 +35,7 @@ const ChatAssistant: React.FC = () => {
 
   const sendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
+    notifyDemoAction('message');
 
     if (!isAuthenticated) {
       setMessages([...messages, {

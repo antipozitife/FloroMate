@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './PersonalGarden.css';
 import { API_BASE_URL, apiUrl } from '../config/api';
+import { notifyDemoAction } from '../demo/demoNotice';
 
 // ========================
 // TYPES
@@ -245,6 +246,7 @@ const PersonalGarden: React.FC = () => {
       alert('❌ Введите описание проблемы');
       return;
     }
+    notifyDemoAction('message');
 
     setAILoading(true);
     try {
@@ -664,6 +666,7 @@ const PersonalGarden: React.FC = () => {
       alert('⚠️ Заполните название и описание');
       return;
     }
+    notifyDemoAction('message');
   
     try {
       const firstName = localStorage.getItem('firstName') || '';
@@ -1400,6 +1403,7 @@ const PersonalGarden: React.FC = () => {
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (file) {
+                  notifyDemoAction('photo');
                   setNewDiaryPhoto(file);
                   setNewDiaryPhotoPreview(URL.createObjectURL(file));
                 }

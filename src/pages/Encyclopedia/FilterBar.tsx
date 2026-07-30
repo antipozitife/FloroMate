@@ -46,6 +46,9 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   const getColorLabel = (color: string): string => {
     const labels: Record<string, string> = {
+      'green': 'Зелёный', 'red': 'Красный', 'purple': 'Фиолетовый',
+      'yellow': 'Жёлтый', 'white': 'Белый', 'pink': 'Розовый',
+      'orange': 'Оранжевый', 'blue': 'Синий',
       'зеленый': 'Зеленый', 'красный': 'Красный', 'фиолетовый': 'Фиолетовый',
       'желтый': 'Желтый', 'белый': 'Белый', 'розовый': 'Розовый',
       'оранжевый': 'Оранжевый', 'синий': 'Синий'
@@ -55,6 +58,10 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   const getHabitatLabel = (habitat: string): string => {
     const labels: Record<string, string> = {
+      'indoor': 'Комнатные',
+      'garden': 'Садовые',
+      'tropical': 'Тропические',
+      'desert': 'Пустынные',
       'комнатное': 'Комнатные',
       'уличное': 'Садовые',
       'водное': 'Водные'
@@ -64,6 +71,10 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   const getHabitatIcon = (habitat: string): string => {
     const icons: Record<string, string> = {
+      'indoor': '🏠',
+      'garden': '🌳',
+      'tropical': '🌴',
+      'desert': '🌵',
       'комнатное': '🏠',
       'уличное': '🌳',
       'водное': '💧'
@@ -73,6 +84,9 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   const getSizeLabel = (size: string): string => {
     const labels: Record<string, string> = {
+      'small': 'Маленькие',
+      'medium': 'Средние',
+      'large': 'Большие',
       'маленькое': 'Маленькие',
       'среднее': 'Средние',
       'большое': 'Большие'
@@ -82,6 +96,9 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   const getSizeIcon = (size: string): string => {
     const icons: Record<string, string> = {
+      'small': '🌱',
+      'medium': '🌿',
+      'large': '🌳',
       'маленькое': '🌱',
       'среднее': '🌿',
       'большое': '🌳'
