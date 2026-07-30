@@ -12,13 +12,13 @@
   left: 10px;
   z-index: 90;
   padding: 10px 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7f9b62 0%, #3f6b35 100%);
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(63, 107, 53, 0.3);
 }
 
 .encyclopedia-content {

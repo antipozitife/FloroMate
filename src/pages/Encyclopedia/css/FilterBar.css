@@ -62,10 +62,7 @@
 .sidebar-header h2 {
   font-size: 1.4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #93a267 0%, #485935 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #3f6b35;
   margin: 0;
   letter-spacing: -0.5px;
 }
