@@ -40,3 +40,16 @@
     font-weight: 600;
   }
   
+.demo-mode-badge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10000;
+  padding: 8px 13px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(58, 83, 48, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  font: 600 12px/1.2 system-ui, sans-serif;
+  pointer-events: none;
+}

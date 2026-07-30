@@ -10,7 +10,6 @@ import land from '../../image/land.png';
 import soob from '../../image/soob.png';
 import ai from '../../image/ai.png';
 import BlurText from "../../ReactBits/BlurText";
-import BlobCursor from '../../ReactBits/BlobCursor';
 import telegramIcon from '../../image/tg.svg';
 import rutubeIcon from '../../image/rutube.svg';
 import vkIcon from '../../image/vk.svg';
@@ -148,24 +147,6 @@ const MainPage: React.FC = () => {
   return (
     
     <div className="main-page">
-       <BlobCursor
-      blobType="circle"
-      fillColor="#8FA67A"
-      trailCount={2}
-       sizes={[50, 55]}
-       innerSizes={[20, 25]} 
-      innerColor="rgba(255,255,255,0.8)"
-      opacities={[0.6, 0.6]}
-      shadowColor="rgba(4, 2, 2, 0.75)"
-      shadowBlur={5}
-      shadowOffsetX={10}
-      shadowOffsetY={10}
-      filterStdDeviation={30}
-      useFilter={true}
-      fastDuration={0.1}
-      slowDuration={0.5}
-      zIndex={9999} 
-    />
       <section className="hero">
          <div className="bubble"></div>
   <div className="bubble"></div>

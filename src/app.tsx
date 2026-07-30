@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainPage from './pages/MainPage/MainPage';
 import './App.css';
+import { DEMO_MODE } from './config/api';
 
 const LandscapeDesign = lazy(() => import('./pages/LandscapeDesign'));
 const LandscapeConstructor = lazy(() => import('./pages/LandscapeConstructor'));
@@ -18,6 +19,7 @@ const Auth = lazy(() => import('./pages/Auth'));
 const App: React.FC = () => {
   return (
     <Router>
+      {DEMO_MODE && <div className="demo-mode-badge">Демо · без сервера</div>}
       <Header />
       <Suspense fallback={<div className="page-loader" role="status">Загружаем страницу…</div>}>
         <Routes>

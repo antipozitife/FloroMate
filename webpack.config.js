@@ -76,6 +76,7 @@ module.exports = (_env, argv) => ({
       __API_BASE_URL__: JSON.stringify(
         (process.env.API_BASE_URL || '').replace(/\/$/, '')
       ),
+      __DEMO_MODE__: JSON.stringify(process.env.DEMO_MODE === 'true'),
     }),
   ],
   devServer: {

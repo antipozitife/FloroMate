@@ -7,6 +7,9 @@ import { Provider } from 'react-redux'
 import { store } from './store/store'
 import App from './app'
 import './index.css'
+import { installDemoApi } from './demo/demoApi'
+
+installDemoApi()
 
 export default () => <App />
 

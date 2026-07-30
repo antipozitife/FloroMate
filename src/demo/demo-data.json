@@ -1,0 +1,77 @@
+{
+  "plants": [
+    {
+      "id": 1,
+      "name": "Монстера",
+      "scientificName": "Monstera deliciosa",
+      "image": "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=800",
+      "color": "green",
+      "habitat": "indoor",
+      "size": "large",
+      "category": "foliage",
+      "categoryName": "Декоративно-лиственные",
+      "description": "Тропическое растение с крупными резными листьями.",
+      "care": { "watering": "1–2 раза в неделю", "light": "Рассеянный свет", "temperature": "18–27°C", "humidity": "60–80%" },
+      "features": ["Очищает воздух", "Быстро растёт", "Подходит для дома"],
+      "dangers": ["Токсично для домашних животных"],
+      "maintenance": "Протирать листья и регулярно опрыскивать."
+    },
+    {
+      "id": 2,
+      "name": "Фикус каучуконосный",
+      "scientificName": "Ficus elastica",
+      "image": "https://images.unsplash.com/photo-1593482892290-f54927ae1bb6?w=800",
+      "color": "green",
+      "habitat": "indoor",
+      "size": "medium",
+      "category": "foliage",
+      "categoryName": "Декоративно-лиственные",
+      "description": "Неприхотливое комнатное растение с глянцевыми листьями.",
+      "care": { "watering": "После подсыхания грунта", "light": "Яркий рассеянный", "temperature": "16–24°C", "humidity": "40–60%" },
+      "features": ["Долговечное", "Очищает воздух"],
+      "dangers": ["Млечный сок раздражает кожу"],
+      "maintenance": "Не допускать застоя воды."
+    },
+    {
+      "id": 3,
+      "name": "Роза садовая",
+      "scientificName": "Rosa",
+      "image": "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800",
+      "color": "red",
+      "habitat": "garden",
+      "size": "medium",
+      "category": "flowering",
+      "categoryName": "Цветущие",
+      "description": "Ароматный многолетник для солнечных участков.",
+      "care": { "watering": "Обильный", "light": "От 6 часов солнца", "temperature": "15–25°C", "humidity": "Средняя" },
+      "features": ["Длительное цветение", "Подходит для букетов"],
+      "dangers": ["Острые шипы"],
+      "maintenance": "Обрезка, подкормка и защита от вредителей."
+    }
+  ],
+  "feedback": [
+    { "id": 1, "authorName": "Елена", "comment": "Удобно планировать уход за домашними растениями.", "rating": 5, "createdAt": "2026-07-01T10:00:00.000Z" },
+    { "id": 2, "authorName": "Максим", "comment": "Диагностика подсказала, как спасти фикус.", "rating": 5, "createdAt": "2026-07-04T12:00:00.000Z" }
+  ],
+  "garden": {
+    "tasks": [
+      { "id": 101, "title": "Полить монстеру", "due_date": "2026-07-30", "completed": false, "urgent": true, "description": "Проверить верхние 3 см грунта" },
+      { "id": 102, "title": "Подрезать розы", "due_date": "2026-08-02", "completed": false, "urgent": false, "description": "Удалить увядшие бутоны" }
+    ],
+    "watering": [
+      { "id": 201, "plant": "Монстера", "frequency": "Раз в 5–7 дней", "amount": "500 мл", "description": "После подсыхания грунта" }
+    ],
+    "fertilizer": [
+      { "id": 301, "name": "Для декоративно-лиственных", "type": "минеральное", "schedule": "Раз в 2 недели", "amount": "По инструкции", "description": "Вносить после полива" }
+    ],
+    "diary": [
+      { "id": 401, "date": "2026-07-28", "title": "Новый лист", "text": "У монстеры раскрылся новый лист." }
+    ],
+    "harvest": [
+      { "id": 501, "date": "2026-07-25", "amount": 2.4 }
+    ],
+    "community": [
+      { "id": 601, "title": "Как притенить розы?", "description": "Делюсь способом защиты посадок в жару.", "author": "Анна", "category": "tips", "tags": ["розы", "лето"], "likes": 12, "created_at": "2026-07-27T09:00:00.000Z" }
+    ]
+  }
+}

@@ -3,14 +3,6 @@
     background: linear-gradient(180deg, #f5f7f2 0%, #eef1ec 50%, #e8eddf 100%);
     overflow-x: hidden;
   }
-  .main-page {
-  cursor: none;
-}
-
-.main-page * {
-  cursor: none !important;
-}
-
 html {
   scroll-behavior: smooth;
 }
