@@ -84,6 +84,12 @@ module.exports = (_env, argv) => ({
     port: 8099,
     historyApiFallback: true,
     hot: true,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
     proxy: [
       {
         context: ['/api'],
@@ -97,7 +103,9 @@ module.exports = (_env, argv) => ({
     runtimeChunk: 'single',
   },
   performance: {
-    hints: 'warning',
+    // Large GLB models are intentional. Do not turn their size into a
+    // full-screen development overlay.
+    hints: argv.mode === 'production' ? 'warning' : false,
     maxAssetSize: 750000,
     maxEntrypointSize: 750000,
   },

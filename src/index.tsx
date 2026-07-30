@@ -24,7 +24,9 @@ export const mount = (Component: any, element: HTMLElement | null = document.get
   console.log('🚀 Монтируем приложение FloroMate в контейнер...');
   
   // ✅ Оборачиваем в Redux Provider
-  rootElement = ReactDOM.createRoot(element)
+  if (!rootElement) {
+    rootElement = ReactDOM.createRoot(element)
+  }
   rootElement.render(
     <Provider store={store}>
       <Component />
